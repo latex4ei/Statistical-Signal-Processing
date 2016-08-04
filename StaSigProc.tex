@@ -765,7 +765,7 @@ variables on the basis of observations of outputs of those random variables.
 
 	\textbf{State space:}\\
 	$\vec x_n = \ma G_n \vec x_{n−1} + \ma B \vec u_n + \vec v_n$\\
-	$\vec y_n = \ma H_n \vec x_{n−1} + \vec w_n$\\
+	$\vec y_n = \ma H_n \vec x_{n} + \vec w_n$\\
 	\\
 	With gaussian process/measurement noise $\vec v_n/\vec w_n$\\
 	Short notation: $\E[\vec x_n|\vec y_{n-1}] = \hat {\vec x}_{n|n-1}$ \quad $\E[\vec x_n|\vec y_{n}] = \hat {\vec x}_{n|n}$\\
