@@ -584,7 +584,7 @@ variables on the basis of observations of outputs of those random variables.
 	\begin{emphbox} 
 		$\vec t_{\ir LS} = (\ma X^\top \ma X)^{-1} \ma X^\top \vec y$\\	
 	\end{emphbox}
-	$\hat{\vec y}_{\ir LS} = \ma X \vec t_{\ir LS} $
+	$\hat{\vec y}_{\ir LS} = \ma X \vec t_{\ir LS} \in span(X)$
 
 	\textbf{Orthogonality Principle:} $N$ observations $\vec x_i ∈ \R^d$ \\ $\ma Y − \ma X\ma T_{\ir LS} ⊥ \operatorname{span}[\ma X] \Leftrightarrow \ma Y - \ma X \ma T_{\ir LS} ∈ \operatorname{null}[\ma \X^\top]$, thus\\
 	$\ma X^\top (\ma Y − \ma X \ma T_{\ir LS} ) = 0$ and if $N > d ∧ \operatorname{rang}[\ma X] = d$:\\ $\ma T_{\ir LS} = (\ma X^\top \ma X)^{-1} \ma X^\top \ma Y$
