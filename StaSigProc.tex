@@ -861,14 +861,16 @@ making a decision based on the observations
 	$φ(x) = 1$: decide for $H_1$, $φ(x) = 0$: decide for $H_0$
 	Error level $α$ with $\E[d(\X)|θ] \le α, ∀θ∈Θ_0$
 
-
-	Error Type 1 and 2:
-	\begin{tablebox}{lll}
-		${}_{\text{Decision}}$\!{\large $\diagdown$}\!${}^{\text{Reality}}$ & $H_1$ false {\small ($H_0$ true)} & $H_1$ true {\small ($H_0$ false)}\\ \cmrule
-	$H_1$ rejected & \textbf{T}rue \textbf{N}egative & \textbf{F}alse \textbf{N}egative(Type 2)\\
-	\small ($H_0$ accepted) & $\P = 1-α$  & $\P = β$\\[1em]
-	$H_1$ accepted & \textbf{F}alse \textbf{P}ositive (Type 1) & \textbf{T}rue \textbf{P}ositive\\
-	\small($H_0$ rejected) & $\P = α$ & $\P = 1-β$
+	\begin{tablebox}{p{7mm}llp{17mm}}
+		Error Type & ${}_{\text{Decision}}$\!{\large $\diagdown$}\!${}^{\text{Reality}}$ & $H_1$ false {\small ($H_0$ true)} & $H_1$ true {\small ($H_0$ false)}
+		\\ \cmrule
+		1 (FA) False& $H_1$ rejected & \textbf{T}rue \textbf{N}egative & \textbf{F}alse \textbf{N}egative (Type 2)
+		\\
+		Alarm & \small ($H_0$ accepted) & $\P = 1-α$  & $\P = β$
+		\\[1em]
+		2 (DE) & $H_1$ accepted & \textbf{F}alse \textbf{P}ositive (Type 1) & \textbf{T}rue \textbf{P}ositive
+		\\
+		Detection Error & \small($H_0$ rejected) & $\P = α$ & $\P = 1-β$
 	\end{tablebox}
 	Power: 
 	Sensitivity/Recall/Hit Rate: $\frac{\text{TP}}{\text{TP}+\text{FN}}=1-β$\\
