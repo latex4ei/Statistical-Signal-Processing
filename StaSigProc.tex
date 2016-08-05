@@ -340,14 +340,14 @@ i.i.d: independently identically distributed
 \section{Wichtige Parameter}
 % ======================================================================
 \begin{sectionbox}
-	\subsection{Erwartungswert (1. Moment)}
+	\subsection{Erwartungswert (1. zentrales Moment)}
 	gibt den mittleren Wert einer Zufallsvariablen an
 
 	\begin{emphbox}
 		$μ_{\X} = \E [\X] = \underset{\text{diskrete} \X:\Omega \ra \Omega'}{\sum\limits_{x \in \Omega'} x \cdot \P_{\X}(x)} \quad \stackrel{\wedge}{=}\quad \underset{\text{stetige} \X: \Omega \ra \R}{\int \limits_{\R} x \cdot f_{\X} (x) \diff x}$
 	\end{emphbox}
 	$\E[\alpha \X + \beta \Y] = \alpha \E [\X] + \beta \E[\Y]$ \hfill $\X \le \Y \Ra \E[\X] \le \E[\Y]$\\
-	\\
+	$\E[X^2] = \Var[X] + \E[X]^2$ \\
 	$\E[\X\Y] = \E[\X] \E[\Y]$, falls $\X$ und $\Y$ stochastisch unabhängig\\
 	Umkehrung nicht möglichich: Unkorrelliertheit $\not \Ra$ Stoch. Unabhängig! \\
 
@@ -584,7 +584,7 @@ variables on the basis of observations of outputs of those random variables.
 	\begin{emphbox} 
 		$\vec t_{\ir LS} = (\ma X^\top \ma X)^{-1} \ma X^\top \vec y$\\	
 	\end{emphbox}
-	$\hat{\vec y}_{\ir LS} = \ma X \vec t_{\ir LS} $
+	$\hat{\vec y}_{\ir LS} = \ma X \vec t_{\ir LS} \in span(X)$
 
 	\textbf{Orthogonality Principle:} $N$ observations $\vec x_i ∈ \R^d$ \\ $\ma Y − \ma X\ma T_{\ir LS} ⊥ \operatorname{span}[\ma X] \Leftrightarrow \ma Y - \ma X \ma T_{\ir LS} ∈ \operatorname{null}[\ma \X^\top]$, thus\\
 	$\ma X^\top (\ma Y − \ma X \ma T_{\ir LS} ) = 0$ and if $N > d ∧ \operatorname{rang}[\ma X] = d$:\\ $\ma T_{\ir LS} = (\ma X^\top \ma X)^{-1} \ma X^\top \ma Y$
@@ -765,7 +765,7 @@ variables on the basis of observations of outputs of those random variables.
 
 	\textbf{State space:}\\
 	$\vec x_n = \ma G_n \vec x_{n−1} + \ma B \vec u_n + \vec v_n$\\
-	$\vec y_n = \ma H_n \vec x_{n−1} + \vec w_n$\\
+	$\vec y_n = \ma H_n \vec x_{n} + \vec w_n$\\
 	\\
 	With gaussian process/measurement noise $\vec v_n/\vec w_n$\\
 	Short notation: $\E[\vec x_n|\vec y_{n-1}] = \hat {\vec x}_{n|n-1}$ \quad $\E[\vec x_n|\vec y_{n}] = \hat {\vec x}_{n|n}$\\
@@ -783,7 +783,7 @@ variables on the basis of observations of outputs of those random variables.
 	$\hat{\vec x}_{n|n} = \underbrace{\hat{\vec x}_{n|n-1}}_{\hspace{-3em}{\text{estimation} \E[\X_n|\Y_{n-1} = y_{n-1} ]}} + \overbrace{ \ma K_n \underbrace{ \left( \vec y_n - \ma H_{n} \hat{\vec x}_{n|n-1} \right)}_{\text{innovation:} Δy_n}  }^{\text{correction:}\\ \E[\X_n|Δ\Y_n = y_n]}$\\[1em]
 	\\
 	With optimal \textbf{Kalman-gain} (prediction for $\vec x_n$ based on $\Delta y_n$): \\
-	$\ma K_n = \ma C_{\vec x_{n|n-1}} \ma H_{n}^\top \left( \ma H_{n} \ma C_{\vec x_{n|n-1}} \ma H_{n}^\top + \ma C_{\vec w_{n}}\right)^{-1}$\\
+	$\ma K_n = \ma C_{\vec x_{n|n-1}} \ma H_{n}^\top ( \underbrace{\ma H_{n} \ma C_{\vec x_{n|n-1}} \ma H_{n}^\top + \ma C_{\vec w_{n}}}_{\ma C_{\delta y_n}})^{-1}$\\
 	\\
 	\textbf{Innovation}: closeness of the estimated mean value to the real value\\
 	$\Delta \vec y_n = \vec y_n - \hat{\vec y}_{n|n-1} =\vec y_n - \ma H_{n} \hat{\vec x}_{n|n-1}$\\
@@ -861,14 +861,16 @@ making a decision based on the observations
 	$φ(x) = 1$: decide for $H_1$, $φ(x) = 0$: decide for $H_0$
 	Error level $α$ with $\E[d(\X)|θ] \le α, ∀θ∈Θ_0$
 
-
-	Error Type 1 and 2:
-	\begin{tablebox}{lll}
-		${}_{\text{Decision}}$\!{\large $\diagdown$}\!${}^{\text{Reality}}$ & $H_1$ false {\small ($H_0$ true)} & $H_1$ true {\small ($H_0$ false)}\\ \cmrule
-	$H_1$ rejected & \textbf{T}rue \textbf{N}egative & \textbf{F}alse \textbf{N}egative(Type 2)\\
-	\small ($H_0$ accepted) & $\P = 1-α$  & $\P = β$\\[1em]
-	$H_1$ accepted & \textbf{F}alse \textbf{P}ositive (Type 1) & \textbf{T}rue \textbf{P}ositive\\
-	\small($H_0$ rejected) & $\P = α$ & $\P = 1-β$
+	\begin{tablebox}{p{7mm}llp{17mm}}
+		Error Type & ${}_{\text{Decision}}$\!{\large $\diagdown$}\!${}^{\text{Reality}}$ & $H_1$ false {\small ($H_0$ true)} & $H_1$ true {\small ($H_0$ false)}
+		\\ \cmrule
+		1 (FA) False& $H_1$ rejected & \textbf{T}rue \textbf{N}egative & \textbf{F}alse \textbf{N}egative (Type 2)
+		\\
+		Alarm & \small ($H_0$ accepted) & $\P = 1-α$  & $\P = β$
+		\\[1em]
+		2 (DE) & $H_1$ accepted & \textbf{F}alse \textbf{P}ositive (Type 1) & \textbf{T}rue \textbf{P}ositive
+		\\
+		Detection Error & \small($H_0$ rejected) & $\P = α$ & $\P = 1-β$
 	\end{tablebox}
 	Power: 
 	Sensitivity/Recall/Hit Rate: $\frac{\text{TP}}{\text{TP}+\text{FN}}=1-β$\\
