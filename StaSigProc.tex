@@ -1,10 +1,10 @@
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % LaTeX4EI Template for Cheat Sheets                                Version 1.0
-%					
+%
 % Authors: Emanuel Regnath, Martin Zellner
 % Contact: info@latex4ei.de
-% Encode: UTF-8, tabwidth = 4, newline = LF	
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% Encode: UTF-8, tabwidth = 4, newline = LF
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 
 % ======================================================================
@@ -53,13 +53,14 @@
 % ======================================================================
 \begin{document}
 
-
+\IfFileExists{git.id}{\input{git.id}}{}
+\ifdefined\GitRevision\mydate{\GitNiceDate\ (git \GitRevision)}\fi
 % Title
 % ----------------------------------------------------------------------
 \maketitle   % requires ./img/Logo.pdf
 
 \begin{symbolbox}
-i.i.d: independently identically distributed	
+i.i.d: independently identically distributed
 \end{symbolbox}
 
 % Section
@@ -81,8 +82,8 @@ i.i.d: independently identically distributed
 	$\underset{\text{Aritmetrische Summenformel}}{\sum \limits_{k=1}^{n} k = \frac{n (n+1)}{2}}$ \quad $\underset{\text{Geometrische Summenformel}}{\sum \limits_{k=0}^{n} q^k = \frac{1 - q^{n+1}}{1-q}}$ \quad $\underset{\text{Exponentialreihe}}{\sum\limits_{n = 0}^{\infty} \frac{\cx z^n}{n!} = e^{\cx z}}$\\
 	\\[0.5em]
 	\textbf{Mittelwerte} \quad ($\sum$ von $i$ bis $N$) \hfill {\small (Median: Mitte einer geordneten Liste)}\\
-	\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}l@{\quad\ $\ge$}l@{\quad\ $\ge$}l} 
-	$\underset{\text{Arithmetisches}}{\ol x_{\ir{ar}} = \frac{1}{N} \sum x_i}$ & $\underset{\text{Geometrisches Mittel}}{\ol x_{\ir{geo}} = \sqrt[N]{ \prod x_i }}$ & $\underset{\text{Harmonisches}}{\ol x_{\ir hm} = }\frac{N}{\sum \frac{1}{x_i}}$\\ 
+	\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}l@{\quad\ $\ge$}l@{\quad\ $\ge$}l}
+	$\underset{\text{Arithmetisches}}{\ol x_{\ir{ar}} = \frac{1}{N} \sum x_i}$ & $\underset{\text{Geometrisches Mittel}}{\ol x_{\ir{geo}} = \sqrt[N]{ \prod x_i }}$ & $\underset{\text{Harmonisches}}{\ol x_{\ir hm} = }\frac{N}{\sum \frac{1}{x_i}}$\\
 	\end{tabular*}
 	\\[0.5em]
 	\textbf{Ungleichungen:} \hfill Bernoulli-Ungleichung:  $(1+x)^n \ge 1+nx$\\
@@ -117,7 +118,7 @@ i.i.d: independently identically distributed
 	orthogonal $\Leftrightarrow \ma A^\top=\ma A^{-1} \Ra \det(\ma A) = \pm 1$\\
 	symmetrisch: $\ma A=\ma A^\top$ \qquad schiefsymmetrisch: $\ma A=-\ma A^\top$
 	%\item hermitsch: $\ma A=\overline{\ma A}^\top$, unitär:$\ma A^{-1} = \overline{\ma A}^\top$
-	
+
 
 	\subsubsection[Determinante]{Determinante von $\ma A\in \mathbb K^{n\times n}$: $\det(\ma A)=|\ma A|$}
 	$\det\mat{ \ma A & \ma 0 \\ \ma C& \ma D }= \det\mat{ \ma A & \ma B \\ \ma 0 & \ma D } = \det(\ma A)\det(\ma D)$ \\
@@ -154,7 +155,7 @@ i.i.d: independently identically distributed
 		Produkt: & $(f \cdot g)'(x) = f'(x) g(x) + f(x) g'(x)$\\
 		Quotient: & $\left(\frac{f}{g}\right)' (x) = \frac{g(x)f'(x) -f(x) g'(x)}{g(x)^2}$ \quad $\left(\frac{\text{NAZ}-\text{ZAN}}{\text{N}^2}\right)$\\
 		Kettenregel & $\left( f\bigl(g(x)\bigr) \right)' = f'\bigl(g(x)\bigr) g'(x)$\\
-	\end{tabular}	
+	\end{tabular}
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -164,7 +165,7 @@ i.i.d: independently identically distributed
 	Partielle Integration: & $\int uw'=uw-\int u'w$\\
 	Substitution: & $\int f(g(x)) g'(x)\diff x=\int f(t)\diff t$
 	\end{tabular*}
-	\begin{tablebox}{@{\hspace{5mm}}c@{\extracolsep\fill}c@{\extracolsep\fill}c@{\hspace{5mm}}} 
+	\begin{tablebox}{@{\hspace{5mm}}c@{\extracolsep\fill}c@{\extracolsep\fill}c@{\hspace{5mm}}}
 		$F(x) - C$ & $f(x)$ & $f'(x)$ \\ \cmrule
 		$\frac{1}{q+1}x^{q+1}$ & $x^q$ & $qx^{q-1}$ \\[1em]
 		\raisebox{-0.2em}{$\frac{2\sqrt{ax^3}}{3}$} & $\sqrt{ax}$ & \raisebox{0.2em}{$\frac{a}{2\sqrt{ax}}$}\\
@@ -173,7 +174,7 @@ i.i.d: independently identically distributed
 		$\frac{a^x}{\ln(a)}$ & $a^x$ & $a^x \ln(a)$ \\
 		$-\cos(x)$ & $\sin(x)$ & $\cos(x)$\\
 		$\cosh(x)$ & $\sinh(x)$ & $\cosh(x)$\\
-		$-\ln |\cos(x)|$ & $\tan(x)$ & $\frac{1}{\cos^2(x)}$ \\ 
+		$-\ln |\cos(x)|$ & $\tan(x)$ & $\frac{1}{\cos^2(x)}$ \\
 	\end{tablebox}
 
 	\begin{tabular*}{\columnwidth}{ll}
@@ -196,9 +197,9 @@ i.i.d: independently identically distributed
 \begin{sectionbox}
 	\subsection{Kombinatorik}
 	Mögliche Variationen/Kombinationen um $k$ Elemente von maximal $n$ Elementen zu wählen bzw. $k$ Elemente auf $n$ Felder zu verteilen:\\
-	\begin{tablebox}{l|cc} 
+	\begin{tablebox}{l|cc}
 		& \large Mit Reihenfolge & \large Reihenfolge egal\\ \cmrule
-		%& ungleiche Elemente & gleiche Elemente \\ 
+		%& ungleiche Elemente & gleiche Elemente \\
 		\large Mit Wiederholung & \large $n^k$ & \Large $\binom{n+k-1}{k}$\\[0.2em]
 		\large Ohne Wiederholung & \Large $\frac{n!}{(n-k)!}$ & \Large $\binom nk$\\
 	\end{tablebox}
@@ -234,7 +235,7 @@ i.i.d: independently identically distributed
 	\subsection{Bedingte Wahrscheinlichkeit}
 	Bedingte Wahrscheinlichkeit für $A$ falls $B$ bereits eingetreten ist:\\
 	$\P_B(A) = \P(A|B) = \frac{\P(A \cap B)}{\P(B)}$ %\qquad\quad $\P(B|A) = \P(A|B) \frac{\P(B)}{\P(A)}$\\
-	
+
 	\subsubsection{Totale Wahrscheinlichkeit und Satz von Bayes}
 	Es muss gelten: $\bigcup\limits_{i \in I} B_i = \Omega$ für $B_i \cap B_j = \emptyset$, $\forall i \neq j$ \\
 	\begin{tabular}{ll}
@@ -248,8 +249,8 @@ i.i.d: independently identically distributed
 
 \begin{sectionbox}
 	\subsection{Zufallsvariable}
-	$\X : \Omega \mapsto \Omega'$ ist Zufallsvariable, wenn für jedes Ereignis $A' \in \F'$  \\ 
-	im Bildraum ein Ereignis $A$ im Urbildraum $\F$ existiert, \\ 
+	$\X : \Omega \mapsto \Omega'$ ist Zufallsvariable, wenn für jedes Ereignis $A' \in \F'$  \\
+	im Bildraum ein Ereignis $A$ im Urbildraum $\F$ existiert, \\
 	sodass $\left\{\omega \in \Omega|\X(\omega) \in A'\right\} \in \F$
 \end{sectionbox}
 
@@ -259,7 +260,7 @@ i.i.d: independently identically distributed
 		\begin{tablebox}{lll}
 			Bezeichnung  & Abk. & Zusammenhang\\ \cmrule
 	Wahrscheinlichkeitsdichte & pdf & $f_{\X}(x) = \frac{\diff F_{\X}(x)}{\diff x}$\\
-	Kumulative Verteilungsfkt. & cdf & $F_{\X}(x) = \int\limits_{-\infty}^{x}{f_{\X}(\xi)\diff\xi}$ \\ 
+	Kumulative Verteilungsfkt. & cdf & $F_{\X}(x) = \int\limits_{-\infty}^{x}{f_{\X}(\xi)\diff\xi}$ \\
 		\end{tablebox}
 	Joint CDF: $F_{\X,\Y}(x,y) = \P(\{\X \le x, \Y \le y\})$
 \end{sectionbox}
@@ -303,16 +304,16 @@ i.i.d: independently identically distributed
 	\subsection{Binomialverteilung $\mathcal B(n,p)$ mit $p \in [0,1], n \in \N$}
 	Folge von $n$ Bernoulli-Experimenten\\
 	$p$: Wahrscheinlichkeit für Erfolg \qquad $k$: Anzahl der Erfolge \\
-	\\ 
+	\\
 	$p_{\X}(k) = B_{n,p}(k) = \begin{cases}
 	\binom{n}{k} p^k (1 - p)^{n - k} & k \in \left\{0,\dots,n\right\} \\
 	0 & \text{sonst} \\
 	\end{cases}$
-	\\ 
+	\\
 	\everymath{\displaystyle}
 	\begin{tablebox}{l@{\extracolsep\fill}ll}
 		$\underset{\text{Erwartungswert}}{\E[\X] =n p}\quad $ & $\underset{\text{Varianz}}{\Var[\X] =np (1-p)}$ & $\underset{\text{Wahrscheinlichkeitserz. Funktion}}{G_X (z) = (pz + 1 -p)^n}$\\
-	\end{tablebox}	
+	\end{tablebox}
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -321,11 +322,11 @@ i.i.d: independently identically distributed
 		\parbox{3.3cm}{\emph{KVF/CDF:} \\ \includegraphics[width = 3.3cm]{./img/normal_cdf.pdf}}
 		\textbf{WDF: }
 		\boxed{f_X (x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2 \sigma^2}} \quad x \in \mathbb R} \qquad \parbox{1.2cm}{$\mu \in \mathbb R$ \\[0.5em] $\sigma > 0$}
-		
+
 		\begin{tablebox}{lll}
 		\everymath{\displaystyle}
-			$\underset{\text{Erwartungswert}}{\E(\X) = \mu}$ & $\underset{\text{Varianz}}{\Var(\X) =\sigma^2}$ & $\underset{\text{Charakt. Funktion}}{\varphi_{\X}(\omega) = e^{j\omega\mu-\frac{\omega^2\sigma^2}{2}}}$\\ 
-		\end{tablebox} \everymath{\textstyle} 
+			$\underset{\text{Erwartungswert}}{\E(\X) = \mu}$ & $\underset{\text{Varianz}}{\Var(\X) =\sigma^2}$ & $\underset{\text{Charakt. Funktion}}{\varphi_{\X}(\omega) = e^{j\omega\mu-\frac{\omega^2\sigma^2}{2}}}$\\
+		\end{tablebox} \everymath{\textstyle}
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -362,11 +363,11 @@ i.i.d: independently identically distributed
 \subsection{Varianz (2. zentrales Moment)}
 	ist ein Maß für die Stärke der Abweichung vom Erwartungswert
 	\begin{emphbox}
-		$σ_{\X}^2 = \Var [X] = \E \big[(\X - \E[\X])^2\big] = \E[\X^2] - \E[\X]^2$ 
+		$σ_{\X}^2 = \Var [X] = \E \big[(\X - \E[\X])^2\big] = \E[\X^2] - \E[\X]^2$
 	\end{emphbox}
 	$\Var [ \alpha \X + \beta] = \alpha^2 \Var [\X]$ \hfill $\Var [\X] = \Cov [\X,\X]$\\[0.5em]
 	$\Var \left[\sum \limits_{i=1}^n \X_i \right] = \sum \limits_{i=1}^{n} \Var [\X_i] + \sum\limits_{j \not= i} \Cov[\X_i, \X_j]$\\
-	\textbf{Standard Abweichung:} $\sigma = \sqrt{\Var[\X]}$	
+	\textbf{Standard Abweichung:} $\sigma = \sqrt{\Var[\X]}$
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -418,7 +419,7 @@ variables on the basis of observations of outputs of those random variables.
 	\begin{tablebox}{lll}
 		Sample Space $Ω$ & nonempty set of outputs of experiment\\
 		Sigma Algebra $\mathbb F \subseteq 2^Ω$ & set of subsets of outputs (events)\\
-		Probability $\P: \mathbb F \mapsto [0,1]$ & \\ 
+		Probability $\P: \mathbb F \mapsto [0,1]$ & \\
 		Random Variable $\X: Ω \mapsto \mathbb X$ & mapped subsets of $Ω$\\
 		Observations: $x_1, \ldots, x_N$ & single values of $\X$\\
 		Observation Space $\mathbb X$ & possible observations of $\X$\\
@@ -437,7 +438,7 @@ variables on the basis of observations of outputs of those random variables.
 \begin{sectionbox}
 	\subsection{Quality Properties of Estimators}
 	Consistent: If $\lim\limits_{N \ra ∞} \T(x_1, \ldots, x_N) = θ$\\
-	Bias $\Bias(\T) := \E [\T(\X_1, \ldots, \X_N)] - θ$ \\ 
+	Bias $\Bias(\T) := \E [\T(\X_1, \ldots, \X_N)] - θ$ \\
 	unbiased if $\Bias(\T)=0$ (biased estimators can provide better estimates than unbiased estimators.)\\
 	Variance $\Var[\T] := \E\left[ (\T − \E[\T])^2 \right]$
 \end{sectionbox}
@@ -450,21 +451,21 @@ variables on the basis of observations of outputs of those random variables.
 	\begin{emphbox}
 		MSE: $ε[\T] = \underset{=\E[(\hat{θ}-θ)^2]}{\E\left[(\T − θ)^2\right]} = \Var(\T) + (\mathrm{Bias}[\T])^2$
 	\end{emphbox}
-	If $Θ$ is also r.v. $\Ra$ mean over both (e.g. Bayes est.):\\	
+	If $Θ$ is also r.v. $\Ra$ mean over both (e.g. Bayes est.):\\
 	\textbf{Mean MSE:} $\E[(\T(\X)-Θ)^2] = \E\left[\E\left[(\T(\X) − Θ)^2|Θ=θ\right]\right]$
 
 	\subsubsection{Minimum Mean Square Error (MMSE)}
 	Minimizes mean square error: $\underset{\hat{θ}}{\arg\min} \E\left[(\hat{θ} − θ)^2\right]$\\
 	$\E\left[(\hat{θ} − θ)^2\right] = \E[θ^2] - 2\hat{θ} \E[θ] + \hat{θ}^2$\\
 	Solution: $\frac{\diff}{\diff \hat{θ}} \E\left[(\hat{θ} − θ)^2\right] \stackrel{!}{=} 0 = - 2\E[θ] + 2\hat{θ}$\quad$\Ra$ $\hat{θ}_{\ir MMSE}=\E[θ]$
-	
+
 \end{sectionbox}
 
 
 \begin{sectionbox}
 	\subsection{Maximum Likelihood}
 	Given model $\{\mathbb X, \mathbb F, \P_θ ; θ ∈ Θ\}$, assume $\P_θ(\vec x)$ or $f_{\vec {\X}}(\vec x,θ)$ for observed data $\vec x$. Estimate parameter $θ$ so that the likelihood $L(\vec x,θ)$ or $L(θ|\X=\vec x)$ to obtain $\vec x$ is maximized.\\
-	\\ 
+	\\
 	\textbf{Likelihood Function:} (Prob. for $θ$ given $\vec x$)\\
 	\begin{tabular}{@{}ll}
 		Discrete: & $L(x_1, \ldots, x_N; θ) = \P_θ(x_1, \ldots, x_N)$\\
@@ -490,11 +491,11 @@ variables on the basis of observations of outputs of those random variables.
 
 \begin{sectionbox}
 	\subsection{Uniformly Minimum Variance Unbiased (UMVU) Estimators (Best unbiased estimators)}
-	Best unbiased estimator: Lowest Variance of all estimators.\\ 
+	Best unbiased estimator: Lowest Variance of all estimators.\\
 	Fisher’s Information Inequality: Estimate lower bound of variance if
 	\begin{itemize}
 		\item $L(x,θ) > 0, ∀x,θ$
-		\item $L(x,θ)$ is diffable for $θ$ 
+		\item $L(x,θ)$ is diffable for $θ$
 		\item $\int_{\mathbb X} \frac{\partial}{\partial θ} L(x,θ) \diff x = \frac{\partial}{\partial θ} \int_{\mathbb X} L(x,θ) \diff x$\
 	\end{itemize}
 	\textbf{Score Function:}\\
@@ -568,7 +569,7 @@ variables on the basis of observations of outputs of those random variables.
 \begin{sectionbox}
 	\begin{emphbox}
 		Estimation: $\hat y = \vec x^\top \vec t + m$ \quad or \quad $\hat y = \vec x^\top \vec t$\\
-	\end{emphbox}	
+	\end{emphbox}
 	Given: $N$ observations $(y_i, \vec x_i)$, unknown parameters $\vec t$, noise $m$\\
 	$\vec y = \mat{y_1 \\ \svdots \\ y_n}$ \quad $\ma X = \mat{\vec{x}_1^\top \\ \svdots \\ \vec{x}_n^\top}$ \qquad Note: $\hat y ≠ y$!!\\
 	Problem: Estimate $y$ based on given (known) observations $\vec x$ and unknown parameter $\vec t$ with assumed linear Model: $\hat y = \vec x^\top \vec t$\\
@@ -581,8 +582,8 @@ variables on the basis of observations of outputs of those random variables.
 	\subsection{Least Square Estimation (LSE)}
 	Tries to minimize the square error for linear Model: $\hat y_{\ir LS} = \vec x^\top \vec t_{\ir LS}$\\
 	Least Square Error: $\min \left[ \sum\limits_{i=1}^N (y_i - \vec x_i^\top \vec t)^2 \right] = \min\limits_{\vec t} \norm{\vec y - \ma X \vec t}$\\
-	\begin{emphbox} 
-		$\vec t_{\ir LS} = (\ma X^\top \ma X)^{-1} \ma X^\top \vec y$\\	
+	\begin{emphbox}
+		$\vec t_{\ir LS} = (\ma X^\top \ma X)^{-1} \ma X^\top \vec y$\\
 	\end{emphbox}
 	$\hat{\vec y}_{\ir LS} = \ma X \vec t_{\ir LS} \in span(X)$
 
@@ -602,9 +603,9 @@ variables on the basis of observations of outputs of those random variables.
 	If Random joint variable $\vec z = \vect{\vec x \\ y}$ with \\ $\vec {μ}_{\vec z} = \vect{\vec{μ}_{\vec x} \\ μ_y}$ and $\ma C_{\vec z} = \mat{\ma C_{\vec x} & \vec c_{\vec xy} \\ c_{y\vec x} & c_y}$ then\\
 	LMMSE Estimation of $y$ given $x$ is\\
 	$\hat y = μ_y+\vec c_{y\vec x} \ma C_{\vec x}^{-1}(\vec x-\vec{μ}_{\vec x}) = \underbrace{\vec c_{y\vec x} \ma C_{\vec x}^{-1}}_{=\vec t^\top}\vec x - \underbrace{μ_y + \vec c_{y\vec x} \ma C_{\vec x}^{-1}\vec{μ}_{\vec x}}_{= m}$\\
-	Minimum MSE: $\E\left[ \norm{\vec y - (\vec x^\top \vec t + m)}_2^2 \right] = c_y - c_{y\vec x} C_{\vec x}^{-1}\vec c_{\vec xy}$\\ 
+	Minimum MSE: $\E\left[ \norm{\vec y - (\vec x^\top \vec t + m)}_2^2 \right] = c_y - c_{y\vec x} C_{\vec x}^{-1}\vec c_{\vec xy}$\\
 	\\
-	\textbf{Hint:} First calculate $\hat y$ in general and then set variables according to system equation.\\ 
+	\textbf{Hint:} First calculate $\hat y$ in general and then set variables according to system equation.\\
 	\textbf{Multivariate:} $\hat{\vec y} = \ma T_{\ir LMMSE}^\top \vec x$ \qquad $ \ma T_{\ir LMMSE}^\top = \ma C_{\vy \vx} \ma C_{\vx}^{-1}$\\
 	\rule{\columnwidth}{0.5pt}
 	\\
@@ -619,7 +620,7 @@ variables on the basis of observations of outputs of those random variables.
 	\subsection{Matched Filter Estimator (MF)}
 	For channel $\vec y = \vec hx + \vec v$, Filtered: $\vec t^\top \vec y = \vec t^\top\vec h x + \vec t^\top \vec v$\\
 	Find Filter $\vec t^\top$ that maximizes SNR $= \frac{\norm{ \vec h x}} {\norm{\vec v}}$\\
-	$\ma t_{\ir MF} = \underset{t}{\max} \left\{ \frac{\E\left[ (\vec t^\top \vec h x)^2 \right] }{\E\left[ (\vec t^\top \vec v)^2 \right] } \right\}$\\ 
+	$\ma t_{\ir MF} = \underset{t}{\max} \left\{ \frac{\E\left[ (\vec t^\top \vec h x)^2 \right] }{\E\left[ (\vec t^\top \vec v)^2 \right] } \right\}$\\
 	\\
 	In the lecture (estimate $\vec h$):\\
 	$\ma T_{\ir MF} = \underset{T}{\max} \left\{ \frac{\left| \E\left[ \hat{\vec h}^H \vec h \right] \right|^2}{\operatorname{tr}\left[ \Var[\ma T \vec n]\right] } \right\}$\\
@@ -633,7 +634,7 @@ variables on the basis of observations of outputs of those random variables.
 
 \begin{sectionbox}
 	\subsection{Example}
-	
+
 	\begin{center}
 		\includegraphics[width = 0.7\columnwidth]{channel}
 	\end{center}
@@ -684,7 +685,7 @@ variables on the basis of observations of outputs of those random variables.
 
 	\textbf{Gaussian Covariance:} if $\Y \sim \mathcal N(0,σ^2), \textit N \sim \mathcal N(0,σ^2)$:\\
 	$\ma C_{\Y} = \Cov[\Y,\Y] = \E[(\Y-μ)(\Y-μ)^\top] = \E[\Y\Y^\top]$\\
-	For Channel $\Y = S h + \textit N$: $\E[\Y\Y^\top] = S\E[h h^\top]S^\top + \E[\textit N \textit N^\top]$ 
+	For Channel $\Y = S h + \textit N$: $\E[\Y\Y^\top] = S\E[h h^\top]S^\top + \E[\textit N \textit N^\top]$
 \end{sectionbox}
 
 
@@ -703,11 +704,11 @@ variables on the basis of observations of outputs of those random variables.
 	\textbf{Contour Lines}\\
 	Ellipsoid with central point $\E[\vec y]$ and main axis are the eigenvectors of $\ma C_{\vec y}^{-1}$\\
 
-	\subsection{Conditional Gaussian} 
-	$\VA\!\sim\!\mathcal N(\vec {μ}_{\VA}, \ma C_{\VA}), \VB\!\sim\!\mathcal N(\vec{μ}_{\VB}, \ma C_{\VB})$ \\ 
+	\subsection{Conditional Gaussian}
+	$\VA\!\sim\!\mathcal N(\vec {μ}_{\VA}, \ma C_{\VA}), \VB\!\sim\!\mathcal N(\vec{μ}_{\VB}, \ma C_{\VB})$ \\
 		$\Ra (\VA| \VB\!=\!b) \sim \mathcal N(\vec{μ}_{\VA|\VB},\ma C_{\VA|\VB})$\\
 	\\
-	\textbf{Conditional Mean:}\\ 
+	\textbf{Conditional Mean:}\\
 	$\E[\VA|\VB = \vec b] = \vec{μ}_{\VA|\VB=\vec b} = \vec{μ}_{\VA} + \ma C_{\VA\VB}\;\ma C_{\VB\VB}^{-1} \left(\vec b - \vec{μ}_{\VB} \right)$\\
 	\\
 	\textbf{Conditional Variance:}\\
@@ -729,7 +730,7 @@ variables on the basis of observations of outputs of those random variables.
 \begin{sectionbox}
 	\subsection{Random Sequences}
 	Sequence of a random variable. Example: result of a dice is RV, roll a dice several times is a random sequence.
-	
+
 	\subsection{Markov Sequence $X_n : Ω \ra X_n$}
 	Sequence of memoryless state transitions with certain probabilities.\\
 	1. state: $f_{\X_1}(x_1)$\\
@@ -744,10 +745,10 @@ variables on the basis of observations of outputs of those random variables.
 	Problem: states $\X_i$ are not visible and can only be guessed indirectly as a random variable $\Y_i$.\\
 	\\
 	\includegraphics[width=\textwidth]{hidden_markov}
-	
+
 	Conditional pdf $f_{\VX_n|\VY_n}$ \qquad Likelihood pdf $f_{\Y_n|\X_n}$\\
 	State-transision pdf $f_{\X_n|\X_{n-1}}$\\
-	\textbf{Estimation:} 
+	\textbf{Estimation:}
 	\begin{equation*}
 		f_{\VX_n|\VY_n} \propto f_{\VY_n|\VX_n} \cdot \int_{\mathbb X} f_{\VX_n|\VX_{n-1}} \cdot f_{\VX_{n-1}|\VY_{n-1}} \diff \vec x_{n-1}
 	\end{equation*}
@@ -778,7 +779,7 @@ variables on the basis of observations of outputs of those random variables.
 	\textbf{2. step: Update}\\
 	Mean: $\hat{\vec x}_{n|n} = \hat{\vec x}_{n|n-1} + \ma K_n \left( \vec y_n - \ma H_{n} \hat{\vec x}_{n|n-1} \right)$\\
 	Covariance: $\ma C_{\vec x_{n|n}} = \ma C_{\vec x_{n|n-1}} + \ma K_n \ma H_{n} \ma C_{\vec x_{n|n-1}}$\\
-	
+
 
 	$\hat{\vec x}_{n|n} = \underbrace{\hat{\vec x}_{n|n-1}}_{\hspace{-3em}{\text{estimation} \E[\X_n|\Y_{n-1} = y_{n-1} ]}} + \overbrace{ \ma K_n \underbrace{ \left( \vec y_n - \ma H_{n} \hat{\vec x}_{n|n-1} \right)}_{\text{innovation:} Δy_n}  }^{\text{correction:}\\ \E[\X_n|Δ\Y_n = y_n]}$\\[1em]
 	\\
@@ -822,7 +823,7 @@ variables on the basis of observations of outputs of those random variables.
 
 
 	$N$ random Particles with particle weight $w_n^i$ at time $n$\\
-	\textbf{Monte-Carlo-Integration:} 
+	\textbf{Monte-Carlo-Integration:}
 	$I = \E[g(\X)] \approx I_N = \frac{1}{N} \sum\limits_{i=1}^{N} \tilde g(x^i)$\\
 	\textbf{Importance Sampling:} Instead of $f_{\X}(x)$ use \textbf{Importance Density} $q_{\X}(x)$\\
 	$I_N = \frac{1}{N} \sum\limits_{i=1}^{N} \tilde w^i g(x^i)$ with weights $\tilde w^i = \frac{f_{\X}(x^i)}{q_{\X}(x^i)}$\\
@@ -838,8 +839,8 @@ variables on the basis of observations of outputs of those random variables.
 	$f_{\X,\Z|\Y} (x,z|y) = f_{\Z|\Y}(z|y) \cdot f_{\X|\Y}(x|y)$\\
 	$f_{\Z|\X,\Y}(z|x,y) = f_{\Z|\Y}(z|y)$ or $f_{\X|\Z,\Y}(x|z,y) = f_{\X|\Y}(x|y)$
 
-	
-	
+
+
 \end{sectionbox}
 
 
@@ -854,7 +855,7 @@ making a decision based on the observations
 
 \begin{sectionbox}
 	\subsection{Definition}
-	
+
 	Null hypothesis $H_0: θ ∈ Θ_0$ (Assumed first to be true)\\
 	Alternate hypothesis $H_1: θ ∈ Θ_1$ (The one to proof) \\
 	Descision rule $φ: \mathbb X \ra [0, 1]$ with \\
@@ -872,7 +873,7 @@ making a decision based on the observations
 		\\
 		Detection Error & \small($H_0$ rejected) & $\P = α$ & $\P = 1-β$
 	\end{tablebox}
-	Power: 
+	Power:
 	Sensitivity/Recall/Hit Rate: $\frac{\text{TP}}{\text{TP}+\text{FN}}=1-β$\\
 	Specificity/True negative rate: $\frac{\text{TN}}{\text{FP}+\text{TN}}=1-α$\\
 	Precision/Positive Prediciton rate: $\frac{\text{TP}}{\text{TP}+\text{FP}}$\\
