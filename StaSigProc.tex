@@ -827,7 +827,7 @@ variables on the basis of observations of outputs of those random variables.
 	$I = \E[g(\X)] \approx I_N = \frac{1}{N} \sum\limits_{i=1}^{N} \tilde g(x^i)$\\
 	\textbf{Importance Sampling:} Instead of $f_{\X}(x)$ use \textbf{Importance Density} $q_{\X}(x)$\\
 	$I_N = \frac{1}{N} \sum\limits_{i=1}^{N} \tilde w^i g(x^i)$ with weights $\tilde w^i = \frac{f_{\X}(x^i)}{q_{\X}(x^i)}$\\
-	If $\int f_{\X_n}(x) \diff x \ne 1$ then $I_N = \sum\limits_{i=1}^{N} \tilde w^i g(x^i)$\\
+	If $\int f_{\X_n}(x) \diff x \ne 1$ then $I_N = \sum\limits_{i=1}^{N} w^i g(x^i)$ with $w^i = \frac{\tilde w^i}{\sum\limits_{i=1}^{N} \tilde w^i}$\\
 \end{sectionbox}
 
 \begin{sectionbox}
