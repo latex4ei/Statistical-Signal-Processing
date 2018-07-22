@@ -781,7 +781,7 @@ variables on the basis of observations of outputs of those random variables.
 	Covariance: $\ma C_{\vec x_{n|n}} = \ma C_{\vec x_{n|n-1}} + \ma K_n \ma H_{n} \ma C_{\vec x_{n|n-1}}$\\
 
 
-	$\hat{\vec x}_{n|n} = \underbrace{\hat{\vec x}_{n|n-1}}_{\hspace{-3em}{\text{estimation} \E[\X_n|\Y_{n-1} = y_{n-1} ]}} + \overbrace{ \ma K_n \underbrace{ \left( \vec y_n - \ma H_{n} \hat{\vec x}_{n|n-1} \right)}_{\text{innovation:} Δy_n}  }^{\text{correction:}\\ \E[\X_n|Δ\Y_n = y_n]}$\\[1em]
+	$\hat{\vec x}_{n|n} = \underbrace{\hat{\vec x}_{n|n-1}}_{\hspace{-3em}{\text{estimation} \E[\X_n|\Y_{n-1} = y_{n-1} ]}} + \overbrace{ \ma K_n \underbrace{ \left( \vec y_n - \ma H_{n} \hat{\vec x}_{n|n-1} \right)}_{\text{innovation:} Δy_n}  }^{\text{correction:}\\ \E[\X_n|Δ\Y_n = Δy_n]}$\\[1em]
 	\\
 	With optimal \textbf{Kalman-gain} (prediction for $\vec x_n$ based on $\Delta y_n$): \\
 	$\ma K_n = \ma C_{\vec x_{n|n-1}} \ma H_{n}^\top ( \underbrace{\ma H_{n} \ma C_{\vec x_{n|n-1}} \ma H_{n}^\top + \ma C_{\vec w_{n}}}_{\ma C_{\delta y_n}})^{-1}$\\
