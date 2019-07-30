@@ -779,7 +779,7 @@ variables on the basis of observations of outputs of those random variables.
 	\\
 	\textbf{2. step: Update}\\
 	Mean: $\hat{\vec x}_{n|n} = \hat{\vec x}_{n|n-1} + \ma K_n \left( \vec y_n - \ma H_{n} \hat{\vec x}_{n|n-1} \right)$\\
-	Covariance: $\ma C_{\vec x_{n|n}} = \ma C_{\vec x_{n|n-1}} + \ma K_n \ma H_{n} \ma C_{\vec x_{n|n-1}}$\\
+	Covariance: $\ma C_{\vec x_{n|n}} = \ma C_{\vec x_{n|n-1}} - \ma K_n \ma H_{n} \ma C_{\vec x_{n|n-1}}$\\
 
 
 	$\hat{\vec x}_{n|n} = \underbrace{\hat{\vec x}_{n|n-1}}_{\hspace{-3em}{\text{estimation} \E[\X_n|\Y_{n-1} = y_{n-1} ]}} + \overbrace{ \ma K_n \underbrace{ \left( \vec y_n - \ma H_{n} \hat{\vec x}_{n|n-1} \right)}_{\text{innovation:} Δy_n}  }^{\text{correction:}\\ \E[\X_n|Δ\Y_n = Δy_n]}$\\[1em]
